@@ -2,7 +2,7 @@
 
 #include <Json_Parser.hpp>
 
-std::string Get_Name(const nlohmann::json& j) { return j.get<std::string>(); } // ретерн возвращает имя студента
+std::string Get_Name(const nlohmann::json& j) { return j.get<std::string>(); }
 
 std::any Get_Group(const nlohmann::json& j) {
     if (j.is_string())
@@ -60,7 +60,7 @@ std::vector<Student> From_File(const std::string& json_path) {
     return result;
 }
 
-void Print(const Student& student, std::ostream& os) { // метод принт по устанавливанию шиирны таблицы и тип
+void Print(const Student& student, std::ostream& os) {
     os << "|" << std::left << std::setw(Width[0] +1) << student.name;
     if (student.group.type() == typeid(int)) {
         os << "| " << std::setw(Width[1]) << std::left << std::any_cast<int>(student.group);
